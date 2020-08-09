@@ -1,2 +1,3 @@
-# ADS030
-Manutenção de Software e Devops
+# Manutenção de Software e Devops
+
+Repositório criado para realização de atividades práticas desta disciplina.
