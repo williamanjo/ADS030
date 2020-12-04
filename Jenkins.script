@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/williamanjo/ADS030.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('Aulas/aluno_online'){
+                    sh 'npm i'
+                    //sh 'npm start' //recomendo rodar separado demora muito no jenkins
+                }
+            }
+        }
+        stage('Unit Testing') {
+            steps {
+                dir('Aulas/jest'){
+                    sh 'jest'
+                }
+            }
+        }        
+        stage('E2E Testing') {
+            steps {
+                dir('Aulas/cucumber'){
+                    sh 'cucumber'
+                }
+            }
+        }
+    }
+}
